@@ -54,7 +54,7 @@ bool load_config(const std::string& path, HealthConfig& config) {
     get_string(text, "log_file", config.log_file);
 
     std::regex service_pattern(
-        R"(\{\s*"name"\s*:\s*"([^"]+)"\s*,\s*"auto_restart"\s*:\s*(true|false)\s*\})"
+        "\\{\\s*\"name\"\\s*:\\s*\"([^\"]+)\"\\s*,\\s*\"auto_restart\"\\s*:\\s*(true|false)\\s*\\}"
     );
     for (std::sregex_iterator it(text.begin(), text.end(), service_pattern), end;
          it != end; ++it) {
